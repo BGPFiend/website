@@ -63,14 +63,17 @@
         <Card class="tool-card">
           <Content class="tool-content">
             <div class="tool-meta">
-              <span class="tool-tag">v0.15.0</span>
+              <span class="tool-tag">BGPFiend API v0.1</span>
             </div>
-            <h3 class="tool-name">BGP Stream</h3>
+            <h3 class="tool-name">Stream BGP elements (line-by-line)</h3>
             <p class="tool-subtitle">GET /stream</p>
             <p class="tool-desc">
-              Stream BGP update messages for a given time range, collector, and
-              peer ASN. Fill in the parameters below and hit Execute to try it
-              out.
+              A quick taste of what BGPFiend can do. Fill in the parameters and
+              hit Execute to stream real BGP data. This covers the basics — for
+              filtering, pagination, output formats, and the full API surface,
+              head to the <a class="doc-link" href="/" target="_blank"
+                >documentation</a
+              >.
             </p>
 
             <form
@@ -347,14 +350,24 @@
 
   .tool-subtitle {
     font-size: 0.875rem;
-    color: #9ca3af;
+    color: #1a1a2e;
     font-family: 'JetBrains Mono', monospace;
     margin-bottom: 1rem;
   }
 
+  .doc-link {
+    font-weight: 600;
+    color: #c92b0c;
+    text-decoration: none;
+  }
+
+  .doc-link:hover {
+    text-decoration: underline;
+  }
+
   .tool-desc {
     font-size: 0.9375rem;
-    color: #6b7280;
+    color: #1a1a2e;
     line-height: 1.7;
     margin-bottom: 1.25rem;
   }
@@ -376,7 +389,7 @@
   .form-label {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #374151;
+    color: #1a1a2e;
     white-space: nowrap;
   }
 
@@ -395,13 +408,13 @@
     right: 0.6rem;
     display: inline-flex;
     align-items: center;
-    color: #9ca3af;
+    color: #1a1a2e;
     cursor: help;
     flex-shrink: 0;
   }
 
   .info-icon:hover {
-    color: #6b7280;
+    color: #1a1a2e;
   }
 
   .tooltip {
@@ -443,7 +456,6 @@
     font-size: 0.82rem;
     font-family: 'JetBrains Mono', monospace;
     color: #1a1a2e;
-    background: #fafafa;
     outline: none;
     transition: border-color 0.15s;
     box-sizing: border-box;
