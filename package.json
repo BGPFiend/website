@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "npm run smui-theme && vite dev",
-    "build": "npm run smui-theme && vite build",
+    "dev": "vite dev",
+    "build": "vite build",
     "preview": "vite preview",
     "smui-theme": "smui-theme compile static/smui.css -i src/theme",
     "prepare": "npm run smui-theme && svelte-kit sync || echo ''",
