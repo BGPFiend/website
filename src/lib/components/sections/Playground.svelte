@@ -8,7 +8,7 @@
   let endTime = $state('2025-01-01T01:00:00')
   let collectors = $state('route-views.wide')
   let dataTypes = $state('updates')
-  let peerAsn = $state('2497')
+  let peerAsn = $state(2497)
 
   let response = $state('')
   let loading = $state(false)
@@ -24,8 +24,11 @@
       end_time: toRFC3339(endTime),
       collectors,
       data_types: dataTypes,
-      peer_asn: peerAsn,
     })
+
+    if (peerAsn != null && !Number.isNaN(peerAsn)) {
+      params.set('peer_asn', String(peerAsn))
+    }
 
     const url = `${BASE_URL}/stream?${params.toString()}`
     loading = true
@@ -79,58 +82,143 @@
             >
               <div class="form-row">
                 <label class="form-label" for="start-time">Start Time</label>
-                <input
-                  id="start-time"
-                  class="form-input"
-                  type="datetime-local"
-                  step="1"
-                  disabled={loading}
-                  bind:value={startTime}
-                />
+                <div class="input-wrapper">
+                  <input
+                    id="start-time"
+                    class="form-input"
+                    type="datetime-local"
+                    step="1"
+                    disabled={loading}
+                    bind:value={startTime}
+                  />
+                  <span class="info-icon">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      ><path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                      /></svg
+                    >
+                    <span class="tooltip"
+                      >Start of the time range (e.g. "2025-01-01T00:00:00Z")</span
+                    >
+                  </span>
+                </div>
               </div>
               <div class="form-row">
                 <label class="form-label" for="end-time">End Time</label>
-                <input
-                  id="end-time"
-                  class="form-input"
-                  type="datetime-local"
-                  step="1"
-                  disabled={loading}
-                  bind:value={endTime}
-                />
+                <div class="input-wrapper">
+                  <input
+                    id="end-time"
+                    class="form-input"
+                    type="datetime-local"
+                    step="1"
+                    disabled={loading}
+                    bind:value={endTime}
+                  />
+                  <span class="info-icon">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      ><path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                      /></svg
+                    >
+                    <span class="tooltip"
+                      >End of the time range (e.g. "2025-01-01T01:00:00Z").</span
+                    >
+                  </span>
+                </div>
               </div>
               <div class="form-row">
                 <label class="form-label" for="collectors">Collectors</label>
-                <input
-                  id="collectors"
-                  class="form-input"
-                  type="text"
-                  placeholder="route-views.wide"
-                  disabled={loading}
-                  bind:value={collectors}
-                />
+                <div class="input-wrapper">
+                  <input
+                    id="collectors"
+                    class="form-input"
+                    type="text"
+                    placeholder="route-views.wide"
+                    disabled={loading}
+                    bind:value={collectors}
+                  />
+                  <span class="info-icon">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      ><path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                      /></svg
+                    >
+                    <span class="tooltip"
+                      >Route collectors to query (e.g. ["rrc00"]). Accepts a
+                      single string, comma-separated, or array.</span
+                    >
+                  </span>
+                </div>
               </div>
               <div class="form-row">
                 <label class="form-label" for="data-types">Data Types</label>
-                <input
-                  id="data-types"
-                  class="form-input"
-                  type="text"
-                  placeholder="updates"
-                  disabled={loading}
-                  bind:value={dataTypes}
-                />
+                <div class="input-wrapper">
+                  <input
+                    id="data-types"
+                    class="form-input"
+                    type="text"
+                    placeholder="updates"
+                    disabled={loading}
+                    bind:value={dataTypes}
+                  />
+                  <span class="info-icon">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      ><path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                      /></svg
+                    >
+                    <span class="tooltip"
+                      >Data types to include: "updates", "ribs", or both.
+                      Accepts a single string, comma-separated, or array.</span
+                    >
+                  </span>
+                </div>
               </div>
               <div class="form-row">
                 <label class="form-label" for="peer-asn">Peer ASN</label>
-                <input
-                  id="peer-asn"
-                  class="form-input"
-                  type="number"
-                  placeholder="2497"
-                  disabled={loading}
-                  bind:value={peerAsn}
-                />
+                <div class="input-wrapper">
+                  <input
+                    id="peer-asn"
+                    class="form-input"
+                    type="number"
+                    placeholder="2497"
+                    disabled={loading}
+                    bind:value={peerAsn}
+                  />
+                  <span class="info-icon">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      ><path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                      /></svg
+                    >
+                    <span class="tooltip">Filter by peer AS number.</span>
+                  </span>
+                </div>
               </div>
             </form>
           </Content>
@@ -290,6 +378,61 @@
     font-weight: 600;
     color: #374151;
     white-space: nowrap;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-wrapper .form-input {
+    padding-right: 2rem;
+  }
+
+  .info-icon {
+    position: absolute;
+    right: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    color: #9ca3af;
+    cursor: help;
+    flex-shrink: 0;
+  }
+
+  .info-icon:hover {
+    color: #6b7280;
+  }
+
+  .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.4rem 0.65rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0.45rem;
+    border: 5px solid transparent;
+    border-top-color: #1a1a2e;
+  }
+
+  .info-icon:hover .tooltip {
+    display: block;
   }
 
   .form-input {
