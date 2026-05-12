@@ -6,7 +6,7 @@
   import '@fontsource/roboto/700.css'
   import '@fontsource/roboto-mono/400.css'
   import '@fontsource/roboto-mono/500.css'
-  import favicon from '$lib/assets/favicon.svg'
+  import favicon from '$lib/assets/bgpfiend_logo.png'
 
   let { children } = $props()
 </script>
