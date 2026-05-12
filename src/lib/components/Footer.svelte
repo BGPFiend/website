@@ -5,7 +5,8 @@
 
   const footerLinks = {
     Resources: [
-      { label: 'API Documentation', href: '#' },
+      { label: 'API Token Registration', href: '#' },
+      { label: 'Documentation', href: '#' },
       { label: 'GitHub', href: 'https://github.com/BGPFiend' },
       { label: 'System Status', href: '#' },
     ],

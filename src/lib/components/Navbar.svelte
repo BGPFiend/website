@@ -8,11 +8,16 @@
     { label: 'Features', href: '#features' },
     { label: 'Quick Start', href: '#quick-start' },
     { label: 'Playground', href: '#playground' },
+    { label: 'API Token Registration', href: '/' },
+    { label: 'Documentation', href: '/' },
     { label: 'Contact', href: 'mailto:info@bgpfiend.io' },
   ]
 
+  let menuOpen = $state(false)
+
   const handleNav = (e, href) => {
     e.preventDefault()
+    menuOpen = false
     scrollTo(href)
     if (href === '#top') {
       replaceState(window.location.pathname, {})
@@ -55,7 +60,43 @@
         </svg>
       </a>
     </nav>
+
+    <button
+      class="hamburger"
+      aria-label="Toggle menu"
+      aria-expanded={menuOpen}
+      onclick={() => (menuOpen = !menuOpen)}
+    >
+      <span class="bar" class:open={menuOpen}></span>
+      <span class="bar" class:open={menuOpen}></span>
+      <span class="bar" class:open={menuOpen}></span>
+    </button>
   </div>
+
+  {#if menuOpen}
+    <nav class="mobile-menu">
+      {#each navLinks as link}
+        <a
+          class="mobile-link"
+          href={link.href}
+          onclick={link.href.startsWith('#')
+            ? (e) => handleNav(e, link.href)
+            : () => (menuOpen = false)}
+        >
+          {link.label}
+        </a>
+      {/each}
+      <a
+        class="mobile-link"
+        href="https://github.com/BGPFiend"
+        target="_blank"
+        rel="noopener"
+        onclick={() => (menuOpen = false)}
+      >
+        GitHub
+      </a>
+    </nav>
+  {/if}
 </header>
 
 <style>
@@ -69,14 +110,13 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-    height: 64px;
   }
 
   .nav-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    height: 100%;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -118,5 +158,84 @@
   .nav-link:hover {
     color: #1a1a2e;
     background: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .hamburger:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #1a1a2e;
+    border-radius: 2px;
+    transition:
+      transform 0.2s,
+      opacity 0.2s;
+    transform-origin: center;
+  }
+
+  .bar:nth-child(1).open {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .bar:nth-child(2).open {
+    opacity: 0;
+  }
+
+  .bar:nth-child(3).open {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 8px 16px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .mobile-link {
+    padding: 12px 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a2e;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+
+  .mobile-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 950px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .mobile-menu {
+      display: flex;
+    }
   }
 </style>
