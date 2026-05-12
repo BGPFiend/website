@@ -174,6 +174,13 @@ monocle rpki validate 1.1.1.0/24 13335`,
     border-bottom: none;
     border-radius: 10px 10px 0 0;
     padding: 8px 8px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .tab {
@@ -189,6 +196,8 @@ monocle rpki validate 1.1.1.0/24 13335`,
       color 0.15s,
       background 0.15s;
     font-family: inherit;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .tab:hover {
