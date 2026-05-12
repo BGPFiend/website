@@ -179,7 +179,7 @@
   }
 
   .hero-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Roboto', system-ui, sans-serif;
     font-size: clamp(40px, 7vw, 72px);
     font-weight: 800;
     line-height: 1.1;
