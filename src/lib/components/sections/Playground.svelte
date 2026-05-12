@@ -1,6 +1,5 @@
 <script>
   import Card, { Content, Actions, ActionButtons } from '@smui/card'
-  import Button, { Label } from '@smui/button'
 
   const BASE_URL = 'http://localhost:8080'
 
@@ -69,7 +68,7 @@
             <p class="tool-subtitle">GET /stream</p>
             <p class="tool-desc">
               A quick taste of what BGPFiend can do. Fill in the parameters and
-              hit Execute to stream real BGP data. This covers the basics — for
+              hit Execute to stream real BGP data. This covers the basics, for
               filtering, pagination, output formats, and the full API surface,
               head to the <a class="doc-link" href="/" target="_blank"
                 >documentation</a
@@ -227,14 +226,14 @@
           </Content>
           <Actions class="tool-actions">
             <ActionButtons>
-              <Button
+              <button
                 onclick={execute}
-                variant="raised"
-                color="primary"
+                class="btn btn--primary"
                 disabled={loading}
+                type="button"
               >
-                <Label>{loading ? 'Executing…' : 'Execute'}</Label>
-              </Button>
+                {loading ? 'Executing…' : 'Execute'}
+              </button>
             </ActionButtons>
           </Actions>
         </Card>
@@ -469,6 +468,35 @@
   .form-input:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .btn--primary {
+    background: #c92b0c;
+    color: white;
+    box-shadow: 0 0 24px rgba(201, 43, 12, 0.25);
+  }
+
+  .btn--primary:hover {
+    background: #a82209;
+    box-shadow: 0 0 36px rgba(201, 43, 12, 0.4);
   }
 
   /* Remove number input spinners */
