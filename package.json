@@ -1,19 +1,29 @@
 {
-	"name": "website",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^7.0.1",
-		"@sveltejs/kit": "^2.57.0",
-		"@sveltejs/vite-plugin-svelte": "^7.0.0",
-		"svelte": "^5.55.2",
-		"vite": "^8.0.7"
-	}
+  "name": "website",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run smui-theme && vite dev",
+    "build": "npm run smui-theme && vite build",
+    "preview": "vite preview",
+    "smui-theme": "smui-theme compile static/smui.css -i src/theme",
+    "prepare": "npm run smui-theme && svelte-kit sync || echo ''",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@fontsource/roboto": "^5.2.10",
+    "@fontsource/roboto-mono": "^5.2.9",
+    "@smui/button": "^8.0.3",
+    "@smui/card": "^8.0.3",
+    "@sveltejs/adapter-auto": "^7.0.1",
+    "@sveltejs/kit": "^2.57.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "@types/node": "^25.7.0",
+    "prettier": "^3.8.3",
+    "prettier-plugin-svelte": "^3.5.2",
+    "smui-theme": "^8.0.3",
+    "svelte": "^5.55.2",
+    "vite": "^8.0.7"
+  }
 }
