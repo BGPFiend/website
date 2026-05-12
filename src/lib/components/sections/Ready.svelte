@@ -3,15 +3,15 @@
   import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 </script>
 
-<section class="cta-section">
+<section class="ready-section">
   <div class="glow" aria-hidden="true"></div>
-  <div class="cta-inner">
-    <h2 class="cta-title">Ready to Get Started?</h2>
-    <p class="cta-sub">
+  <div class="ready-inner">
+    <h2 class="ready-title">Ready to Get Started?</h2>
+    <p class="ready-sub">
       Join thousands of developers and researchers using BGPFiend for BGP data
       analysis. Start your journey into BGP data processing today.
     </p>
-    <div class="cta-actions">
+    <div class="ready-actions">
       <button
         class="btn btn--primary"
         onclick={() => apiTokenDialogOpen.set(true)}
@@ -31,7 +31,7 @@
 </section>
 
 <style>
-  .cta-section {
+  .ready-section {
     padding: 100px 24px;
     text-align: center;
     position: relative;
@@ -52,7 +52,7 @@
     pointer-events: none;
   }
 
-  .cta-inner {
+  .ready-inner {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
@@ -62,22 +62,23 @@
     gap: 20px;
   }
 
-  .cta-title {
+  .ready-title {
     font-size: clamp(28px, 5vw, 46px);
     font-weight: 800;
     color: #1a1a2e;
     margin: 0;
     line-height: 1.15;
+    font-family: 'Permanent Marker', cursive;
   }
 
-  .cta-sub {
+  .ready-sub {
     font-size: 16px;
     color: #1a1a2e;
     line-height: 1.7;
     margin: 0;
   }
 
-  .cta-actions {
+  .ready-actions {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;

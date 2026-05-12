@@ -1,7 +1,7 @@
 <script>
   import logo from '$lib/assets/bgpfiend_logo.png'
   import { scrollTo } from '../scroll.js'
-  import { replaceState } from '$app/navigation'
+  import { replaceState, goto } from '$app/navigation'
   import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
   const footerLinks = {
@@ -17,6 +17,10 @@
 
   const handleNav = (e, href) => {
     e.preventDefault()
+    if (window.location.pathname !== '/') {
+      goto('/' + href)
+      return
+    }
     scrollTo(href)
     if (href === '#top') {
       replaceState(window.location.pathname, {})

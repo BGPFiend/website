@@ -179,7 +179,7 @@
   }
 
   .hero-title {
-    font-family: 'Roboto', system-ui, sans-serif;
+    font-family: 'Permanent Marker', cursive;
     font-size: clamp(40px, 7vw, 72px);
     font-weight: 800;
     line-height: 1.1;

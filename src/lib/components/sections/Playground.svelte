@@ -266,6 +266,7 @@
     font-weight: 700;
     color: #c92b0c;
     text-align: center;
+    font-family: 'Permanent Marker', cursive;
   }
 
   .section-caption {

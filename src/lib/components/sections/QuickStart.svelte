@@ -142,6 +142,7 @@ monocle rpki validate 1.1.1.0/24 13335`,
     font-weight: 700;
     color: #c92b0c;
     text-align: center;
+    font-family: 'Permanent Marker', cursive;
   }
 
   .section-caption {

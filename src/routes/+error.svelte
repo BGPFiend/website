@@ -1,18 +1,17 @@
 <script>
   import { page } from '$app/stores'
-  import logo from '$lib/assets/bgpfiend_logo.png'
+  import Navbar from '$lib/components/Navbar.svelte'
+  import Footer from '$lib/components/Footer.svelte'
 </script>
 
 <svelte:head>
-  <title>{$page.status} — BGPFiend</title>
+  <title>{$page.status} - BGPFiend</title>
 </svelte:head>
 
 <div class="error-page">
-  <a href="/" class="brand">
-    <img src={logo} alt="BGPFiend" class="brand-logo" />
-  </a>
+  <Navbar />
 
-  <div class="content">
+  <main class="content">
     <span class="status">{$page.status}</span>
     <h1 class="title">
       {#if $page.status === 404}
@@ -29,7 +28,9 @@
       {/if}
     </p>
     <a href="/" class="btn btn--primary">Go back home</a>
-  </div>
+  </main>
+
+  <Footer />
 </div>
 
 <style>
@@ -37,33 +38,19 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    background: var(--color-bg);
-  }
-
-  .brand {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-
-  .brand-logo {
-    height: 44px;
-    width: auto;
   }
 
   .content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     gap: 16px;
     max-width: 480px;
+    margin: 0 auto;
+    padding: 112px 24px 48px;
   }
 
   .status {
@@ -71,7 +58,7 @@
     font-weight: 700;
     line-height: 1;
     color: var(--color-primary);
-    font-family: 'Roboto', system-ui, sans-serif;
+    font-family: 'Permanent Marker', cursive;
     letter-spacing: -4px;
   }
 

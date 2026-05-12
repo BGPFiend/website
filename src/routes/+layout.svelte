@@ -6,7 +6,9 @@
   import '@fontsource/roboto/700.css'
   import '@fontsource/roboto-mono/400.css'
   import '@fontsource/roboto-mono/500.css'
+  import '@fontsource/permanent-marker/400.css'
   import favicon from '$lib/assets/bgpfiend_logo.png'
+  import ApiTokenDialog from '$lib/components/ApiTokenDialog.svelte'
 
   let { children } = $props()
 </script>
@@ -16,4 +18,5 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
+<ApiTokenDialog />
 {@render children()}
