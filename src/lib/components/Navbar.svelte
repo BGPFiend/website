@@ -2,13 +2,14 @@
   import logo from '$lib/assets/bgpfiend_logo.png'
   import { scrollTo } from '../scroll.js'
   import { replaceState } from '$app/navigation'
+  import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
   const navLinks = [
     { label: 'Top', href: '#top' },
     { label: 'Features', href: '#features' },
     { label: 'Quick Start', href: '#quick-start' },
     { label: 'Playground', href: '#playground' },
-    { label: 'API Token Registration', href: '/' },
+    { label: 'API Token Registration', dialog: 'api-token' },
     { label: 'Documentation', href: '/' },
     { label: 'Contact', href: 'mailto:info@bgpfiend.io' },
   ]
@@ -25,6 +26,11 @@
       replaceState(href, {})
     }
   }
+
+  const openApiDialog = () => {
+    menuOpen = false
+    apiTokenDialogOpen.set(true)
+  }
 </script>
 
 <header class="nav">
@@ -38,9 +44,14 @@
         <a
           class="nav-link"
           href={link.href}
-          onclick={link.href.startsWith('#')
-            ? (e) => handleNav(e, link.href)
-            : undefined}
+          onclick={link.dialog === 'api-token'
+            ? (e) => {
+                e.preventDefault()
+                openApiDialog()
+              }
+            : link.href.startsWith('#')
+              ? (e) => handleNav(e, link.href)
+              : undefined}
         >
           {link.label}
         </a>
@@ -79,9 +90,14 @@
         <a
           class="mobile-link"
           href={link.href}
-          onclick={link.href.startsWith('#')
-            ? (e) => handleNav(e, link.href)
-            : () => (menuOpen = false)}
+          onclick={link.dialog === 'api-token'
+            ? (e) => {
+                e.preventDefault()
+                openApiDialog()
+              }
+            : link.href.startsWith('#')
+              ? (e) => handleNav(e, link.href)
+              : () => (menuOpen = false)}
         >
           {link.label}
         </a>

@@ -1,5 +1,6 @@
 <script>
   import { scrollTo } from '../../scroll.js'
+  import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 </script>
 
 <section class="cta-section">
@@ -11,7 +12,10 @@
       analysis. Start your journey into BGP data processing today.
     </p>
     <div class="cta-actions">
-      <button class="btn btn--primary" onclick={() => scrollTo('#quick-start')}>
+      <button
+        class="btn btn--primary"
+        onclick={() => apiTokenDialogOpen.set(true)}
+      >
         API Token Registration
       </button>
       <a

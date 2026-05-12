@@ -1,13 +1,14 @@
 <script>
   import logo from '$lib/assets/bgpfiend_logo.png'
   import { scrollTo } from '../../scroll.js'
+  import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
   const workflowSteps = [
     {
       step: 'Step 1',
       title: 'Register for a token',
       description: 'Register for a free API token to access our BGP toolkit.',
-      link: '#tools',
+      dialog: 'api-token',
       linkLabel: 'API token registration →',
     },
     {
@@ -80,10 +81,14 @@
             <p class="step-desc">{step.description}</p>
             <a
               class="step-link"
-              href={step.link}
+              href={step.link ?? '#'}
               onclick={(e) => {
                 e.preventDefault()
-                scrollTo(step.link)
+                if (step.dialog === 'api-token') {
+                  apiTokenDialogOpen.set(true)
+                } else {
+                  scrollTo(step.link)
+                }
               }}
             >
               {step.linkLabel}

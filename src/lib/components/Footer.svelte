@@ -2,10 +2,11 @@
   import logo from '$lib/assets/bgpfiend_logo.png'
   import { scrollTo } from '../scroll.js'
   import { replaceState } from '$app/navigation'
+  import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
   const footerLinks = {
     Resources: [
-      { label: 'API Token Registration', href: '#' },
+      { label: 'API Token Registration', href: '#', dialog: 'api-token' },
       { label: 'Documentation', href: '#' },
       { label: 'GitHub', href: 'https://github.com/BGPFiend' },
       { label: 'System Status', href: '#' },
@@ -59,7 +60,12 @@
               <a
                 class="footer-link"
                 href={link.href}
-                onclick={(e) => handleNav(e, link.href)}
+                onclick={link.dialog === 'api-token'
+                  ? (e) => {
+                      e.preventDefault()
+                      apiTokenDialogOpen.set(true)
+                    }
+                  : (e) => handleNav(e, link.href)}
               >
                 {link.label}
               </a>

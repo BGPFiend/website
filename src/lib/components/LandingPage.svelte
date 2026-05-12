@@ -6,9 +6,11 @@
   import Playground from './sections/Playground.svelte'
   import Ready from './sections/Ready.svelte'
   import Footer from './Footer.svelte'
+  import ApiTokenDialog from './ApiTokenDialog.svelte'
 </script>
 
 <div class="app">
+  <ApiTokenDialog />
   <Navbar />
   <main>
     <Hero />
