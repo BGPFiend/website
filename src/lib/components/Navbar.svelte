@@ -1,23 +1,30 @@
 <script>
-  import logo from "$lib/assets/bgpfiend_logo.png"
-  import { scrollTo } from "../scroll.js"
+  import logo from '$lib/assets/bgpfiend_logo.png'
+  import { scrollTo } from '../scroll.js'
+  import { replaceState } from '$app/navigation'
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "Features", href: "#features" },
-    { label: "Quick Start", href: "#quick-start" },
-    { label: "Playground", href: "#playground" },
+    { label: 'Top', href: '#top' },
+    { label: 'Features', href: '#features' },
+    { label: 'Quick Start', href: '#quick-start' },
+    { label: 'Playground', href: '#playground' },
+    { label: 'Contact', href: 'mailto:info@bgpfiend.io' },
   ]
 
-  function handleNav(e, href) {
+  const handleNav = (e, href) => {
     e.preventDefault()
     scrollTo(href)
+    if (href === '#top') {
+      replaceState(window.location.pathname, {})
+    } else {
+      replaceState(href, {})
+    }
   }
 </script>
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#hero" onclick={(e) => handleNav(e, "#hero")}>
+    <a class="brand" href="/" onclick={(e) => handleNav(e, '#top')}>
       <img src={logo} alt="BGPFiend" class="brand-logo" />
     </a>
 
@@ -26,7 +33,9 @@
         <a
           class="nav-link"
           href={link.href}
-          onclick={(e) => handleNav(e, link.href)}
+          onclick={link.href.startsWith('#')
+            ? (e) => handleNav(e, link.href)
+            : undefined}
         >
           {link.label}
         </a>

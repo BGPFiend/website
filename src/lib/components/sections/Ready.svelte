@@ -1,5 +1,5 @@
 <script>
-  import { scrollTo } from "../../scroll.js"
+  import { scrollTo } from '../../scroll.js'
 </script>
 
 <section class="cta-section">
@@ -11,7 +11,7 @@
       analysis. Start your journey into BGP data processing today.
     </p>
     <div class="cta-actions">
-      <button class="btn btn--primary" onclick={() => scrollTo("#quick-start")}>
+      <button class="btn btn--primary" onclick={() => scrollTo('#quick-start')}>
         API Token Registration
       </button>
       <a

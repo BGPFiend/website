@@ -1,6 +1,6 @@
 <script>
-  import Card, { Content, Actions, ActionButtons } from "@smui/card"
-  import Button, { Label } from "@smui/button"
+  import Card, { Content, Actions, ActionButtons } from '@smui/card'
+  import Button, { Label } from '@smui/button'
 </script>
 
 <section id="playground" class="section">
@@ -124,7 +124,7 @@
   .tool-tag {
     font-size: 0.72rem;
     font-weight: 600;
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     color: #c92b0c;
     background: rgba(201, 43, 12, 0.08);
     padding: 0.2rem 0.55rem;
@@ -165,7 +165,7 @@
     padding: 0.6rem 1.25rem;
     background: #1a1a2e;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.4);
     text-transform: uppercase;
@@ -180,7 +180,7 @@
   }
 
   .tool-code code {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
     line-height: 1.75;
     color: #cdd6f4;

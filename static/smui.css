@@ -53,8 +53,8 @@
   margin-left: 0;
   margin-right: 8px;
 }
-[dir="rtl"] .mdc-button .mdc-button__icon,
-.mdc-button .mdc-button__icon[dir="rtl"] {
+[dir='rtl'] .mdc-button .mdc-button__icon,
+.mdc-button .mdc-button__icon[dir='rtl'] {
   margin-left: 8px;
   margin-right: 0;
 }
@@ -95,7 +95,7 @@
   .mdc-button.mdc-ripple-upgraded--background-focused
     .mdc-button__focus-ring::after,
   .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring::after {
-    content: "";
+    content: '';
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 8px;
     display: block;
@@ -126,8 +126,8 @@
   margin-left: 8px;
   margin-right: 0;
 }
-[dir="rtl"] .mdc-button__label + .mdc-button__icon,
-.mdc-button__label + .mdc-button__icon[dir="rtl"] {
+[dir='rtl'] .mdc-button__label + .mdc-button__icon,
+.mdc-button__label + .mdc-button__icon[dir='rtl'] {
   margin-left: 0;
   margin-right: 8px;
 }
@@ -224,7 +224,7 @@ svg.mdc-button__icon {
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  content: "";
+  content: '';
 }
 .mdc-button .mdc-button__ripple::before {
   transition:
@@ -831,12 +831,12 @@ svg.mdc-button__icon {
   margin-left: -4px;
   margin-right: 8px;
 }
-[dir="rtl"] .mdc-button--raised .mdc-button__icon,
-[dir="rtl"] .mdc-button--unelevated .mdc-button__icon,
-[dir="rtl"] .mdc-button--outlined .mdc-button__icon,
-.mdc-button--raised .mdc-button__icon[dir="rtl"],
-.mdc-button--unelevated .mdc-button__icon[dir="rtl"],
-.mdc-button--outlined .mdc-button__icon[dir="rtl"] {
+[dir='rtl'] .mdc-button--raised .mdc-button__icon,
+[dir='rtl'] .mdc-button--unelevated .mdc-button__icon,
+[dir='rtl'] .mdc-button--outlined .mdc-button__icon,
+.mdc-button--raised .mdc-button__icon[dir='rtl'],
+.mdc-button--unelevated .mdc-button__icon[dir='rtl'],
+.mdc-button--outlined .mdc-button__icon[dir='rtl'] {
   margin-left: 8px;
   margin-right: -4px;
 }
@@ -846,12 +846,12 @@ svg.mdc-button__icon {
   margin-left: 8px;
   margin-right: -4px;
 }
-[dir="rtl"] .mdc-button--raised .mdc-button__label + .mdc-button__icon,
-[dir="rtl"] .mdc-button--unelevated .mdc-button__label + .mdc-button__icon,
-[dir="rtl"] .mdc-button--outlined .mdc-button__label + .mdc-button__icon,
-.mdc-button--raised .mdc-button__label + .mdc-button__icon[dir="rtl"],
-.mdc-button--unelevated .mdc-button__label + .mdc-button__icon[dir="rtl"],
-.mdc-button--outlined .mdc-button__label + .mdc-button__icon[dir="rtl"] {
+[dir='rtl'] .mdc-button--raised .mdc-button__label + .mdc-button__icon,
+[dir='rtl'] .mdc-button--unelevated .mdc-button__label + .mdc-button__icon,
+[dir='rtl'] .mdc-button--outlined .mdc-button__label + .mdc-button__icon,
+.mdc-button--raised .mdc-button__label + .mdc-button__icon[dir='rtl'],
+.mdc-button--unelevated .mdc-button__label + .mdc-button__icon[dir='rtl'],
+.mdc-button--outlined .mdc-button__label + .mdc-button__icon[dir='rtl'] {
   margin-left: -4px;
   margin-right: 8px;
 }
@@ -871,7 +871,7 @@ svg.mdc-button__icon {
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  content: "";
+  content: '';
 }
 .mdc-ripple-surface::before {
   transition:
@@ -1271,7 +1271,7 @@ svg.mdc-button__icon {
   left: 0;
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: inherit;
-  content: "";
+  content: '';
   pointer-events: none;
 }
 @media screen and (forced-colors: active) {
@@ -1307,7 +1307,7 @@ svg.mdc-button__icon {
 }
 .mdc-card__media::before {
   display: block;
-  content: "";
+  content: '';
 }
 .mdc-card__media:first-child {
   border-top-left-radius: inherit;
@@ -1377,8 +1377,8 @@ svg.mdc-button__icon {
   margin-left: 16px;
   margin-right: 0;
 }
-[dir="rtl"] .mdc-card__action-buttons + .mdc-card__action-icons,
-.mdc-card__action-buttons + .mdc-card__action-icons[dir="rtl"] {
+[dir='rtl'] .mdc-card__action-buttons + .mdc-card__action-icons,
+.mdc-card__action-buttons + .mdc-card__action-icons[dir='rtl'] {
   margin-left: 0;
   margin-right: 16px;
 }
@@ -1398,8 +1398,8 @@ svg.mdc-button__icon {
   margin-left: 0;
   margin-right: 8px;
 }
-[dir="rtl"] .mdc-card__action--button,
-.mdc-card__action--button[dir="rtl"] {
+[dir='rtl'] .mdc-card__action--button,
+.mdc-card__action--button[dir='rtl'] {
   margin-left: 8px;
   margin-right: 0;
 }
@@ -1410,8 +1410,8 @@ svg.mdc-button__icon {
   margin-left: 0;
   margin-right: 0;
 }
-[dir="rtl"] .mdc-card__action--button:last-child,
-.mdc-card__action--button:last-child[dir="rtl"] {
+[dir='rtl'] .mdc-card__action--button:last-child,
+.mdc-card__action--button:last-child[dir='rtl'] {
   margin-left: 0;
   margin-right: 0;
 }
@@ -1424,8 +1424,8 @@ svg.mdc-button__icon {
   padding: 8px 16px;
   text-align: left;
 }
-[dir="rtl"] .mdc-card__actions--full-bleed .mdc-card__action--button,
-.mdc-card__actions--full-bleed .mdc-card__action--button[dir="rtl"] {
+[dir='rtl'] .mdc-card__actions--full-bleed .mdc-card__action--button,
+.mdc-card__actions--full-bleed .mdc-card__action--button[dir='rtl'] {
   text-align: right;
 }
 .mdc-card__action--icon {
@@ -1451,7 +1451,7 @@ svg.mdc-button__icon {
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  content: "";
+  content: '';
 }
 .mdc-card__primary-action .mdc-card__ripple::before {
   transition:
@@ -1551,7 +1551,7 @@ svg.mdc-button__icon {
   left: 0;
   border: 5px double rgba(0, 0, 0, 0);
   border-radius: inherit;
-  content: "";
+  content: '';
   pointer-events: none;
 }
 @media screen and (forced-colors: active) {
@@ -1599,7 +1599,7 @@ svg.mdc-button__icon {
     .mdc-icon-button__focus-ring::after,
   .mdc-icon-button:not(.mdc-ripple-upgraded):focus
     .mdc-icon-button__focus-ring::after {
-    content: "";
+    content: '';
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 8px;
     display: block;
@@ -1726,7 +1726,7 @@ svg.mdc-button__icon {
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  content: "";
+  content: '';
 }
 .mdc-icon-button .mdc-icon-button__ripple::before {
   transition:
@@ -1871,7 +1871,7 @@ svg.mdc-button__icon {
     .mdc-icon-button__focus-ring::after,
   .mdc-icon-button.smui-icon-button--size-mini:not(.mdc-ripple-upgraded):focus
     .mdc-icon-button__focus-ring::after {
-    content: "";
+    content: '';
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 8px;
     display: block;
@@ -1974,7 +1974,7 @@ svg.mdc-button__icon {
     .mdc-icon-button__focus-ring::after,
   .mdc-icon-button.smui-icon-button--size-button:not(.mdc-ripple-upgraded):focus
     .mdc-icon-button__focus-ring::after {
-    content: "";
+    content: '';
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 8px;
     display: block;

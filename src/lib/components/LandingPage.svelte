@@ -1,11 +1,11 @@
 <script>
-  import Navbar from "./Navbar.svelte"
-  import Hero from "./sections/Hero.svelte"
-  import QuickStart from "./sections/QuickStart.svelte"
-  import Features from "./sections/Features.svelte"
-  import Playground from "./sections/Playground.svelte"
-  import Ready from "./sections/Ready.svelte"
-  import Footer from "./Footer.svelte"
+  import Navbar from './Navbar.svelte'
+  import Hero from './sections/Hero.svelte'
+  import QuickStart from './sections/QuickStart.svelte'
+  import Features from './sections/Features.svelte'
+  import Playground from './sections/Playground.svelte'
+  import Ready from './sections/Ready.svelte'
+  import Footer from './Footer.svelte'
 </script>
 
 <div class="app">

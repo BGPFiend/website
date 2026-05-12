@@ -1,67 +1,67 @@
 <script>
-  import Card, { Content, Actions, ActionButtons } from "@smui/card"
-  import Button, { Label } from "@smui/button"
-  import performanceImg from "$lib/assets/vite.svg"
+  import Card, { Content, Actions, ActionButtons } from '@smui/card'
+  import Button, { Label } from '@smui/button'
+  import performanceImg from '$lib/assets/vite.svg'
 
   const features = [
     {
-      name: "High Performance",
+      name: 'High Performance',
       description:
-        "Built in Rust for maximum speed. Comparable to C-based implementations like bgpdump.",
+        'Built in Rust for maximum speed. Comparable to C-based implementations like bgpdump.',
       features: [
-        "Parse local and remote MRT files",
-        "Early-exit prefix and AS path filters",
-        "Rust, Python, and CLI interfaces",
-        "RFC 6396 and RFC 6397 compliant",
+        'Parse local and remote MRT files',
+        'Early-exit prefix and AS path filters',
+        'Rust, Python, and CLI interfaces',
+        'RFC 6396 and RFC 6397 compliant',
       ],
       img: performanceImg,
     },
     {
-      name: "Easy to Use",
+      name: 'Easy to Use',
       description:
-        "Ergonomic SDKs that get you started with just a few lines of code. Battery-included with remote file support.",
+        'Ergonomic SDKs that get you started with just a few lines of code. Battery-included with remote file support.',
       features: [
-        "70+ collectors indexed in real-time",
-        "Query by time window and collector",
-        "REST API and Rust/Python SDKs",
-        "Deterministic, reproducible results",
+        '70+ collectors indexed in real-time',
+        'Query by time window and collector',
+        'REST API and Rust/Python SDKs',
+        'Deterministic, reproducible results',
       ],
-      lang: "bash",
+      lang: 'bash',
       code: `bgpflux \\
 --start "2025-01-15T12:00:00Z" \\
 --end "2025-01-15T13:00:00Z" \\
 -c route-views.wide,rrc04 \\
 -t update`,
-      linkLabel: "Documentation",
-      link: "#",
+      linkLabel: 'Documentation',
+      link: '#',
     },
     {
-      name: "Actively Maintained",
+      name: 'Actively Maintained',
       description:
-        "Regular updates, bug fixes, and support for the latest BGP RFCs. Community-driven development.",
+        'Regular updates, bug fixes, and support for the latest BGP RFCs. Community-driven development.',
       features: [
-        "Live stream monitoring from collectors",
-        "Built-in RPKI route-origin validation",
-        "AS path analysis and leak detection",
-        "JSON/CSV output for pipeline integration",
+        'Live stream monitoring from collectors',
+        'Built-in RPKI route-origin validation',
+        'AS path analysis and leak detection',
+        'JSON/CSV output for pipeline integration',
       ],
-      lang: "bash",
+      lang: 'bash',
       code: `bgpflux \\
 --start "2025-01-15T12:00:00Z" \\
 --end "2025-01-15T13:00:00Z" \\
 -c route-views.wide,rrc04 \\
 -t update`,
-      linkLabel: "Documentation",
-      link: "#",
+      linkLabel: 'Documentation',
+      link: '#',
     },
     {
-      name: "Open Source",
+      name: 'Open Source',
       description:
-        "GPL-3.0 licensed and completely open source. Use it anywhere, contribute back, or build commercial products.",
+        'GPL-3.0 licensed and completely open source. Use it anywhere, contribute back, or build commercial products.',
       features: [],
       img: performanceImg,
-      linkLabel: "GitHub",
-      link: "#",
+      linkLabel: 'GitHub',
+      link: '#',
     },
   ]
 </script>
@@ -286,7 +286,7 @@
     padding: 0.6rem 1.25rem;
     background: #1a1a2e;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.4);
     text-transform: uppercase;
@@ -301,7 +301,7 @@
   }
 
   .feature-code code {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
     line-height: 1.75;
     color: #cdd6f4;

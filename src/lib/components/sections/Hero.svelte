@@ -1,33 +1,33 @@
 <script>
-  import logo from "$lib/assets/bgpfiend_logo.png"
-  import { scrollTo } from "../../scroll.js"
+  import logo from '$lib/assets/bgpfiend_logo.png'
+  import { scrollTo } from '../../scroll.js'
 
   const workflowSteps = [
     {
-      step: "Step 1",
-      title: "Register for a token",
-      description: "Register for a free API token to access our BGP toolkit.",
-      link: "#tools",
-      linkLabel: "API token registration →",
+      step: 'Step 1',
+      title: 'Register for a token',
+      description: 'Register for a free API token to access our BGP toolkit.',
+      link: '#tools',
+      linkLabel: 'API token registration →',
     },
     {
-      step: "Step 2",
-      title: "Access our toolkit",
-      description: "Stream, parse, and apply filters for getting BGP data.",
-      link: "#tools",
-      linkLabel: "Read our docs →",
+      step: 'Step 2',
+      title: 'Access our toolkit',
+      description: 'Stream, parse, and apply filters for getting BGP data.',
+      link: '#tools',
+      linkLabel: 'Read our docs →',
     },
   ]
 
   const stats = [
-    { value: "70+", label: "BGP Collectors" },
-    { value: "1000+", label: "Full-feed Peers" },
-    { value: "<5min", label: "Data Delay" },
-    { value: "GPL-3.0", label: "Licensed" },
+    { value: '70+', label: 'BGP Collectors' },
+    { value: '1000+', label: 'Full-feed Peers' },
+    { value: '<5min', label: 'Data Delay' },
+    { value: 'GPL-3.0', label: 'Licensed' },
   ]
 </script>
 
-<section id="hero" class="hero">
+<section id="top" class="hero">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="glow glow-1" aria-hidden="true"></div>
   <div class="glow glow-2" aria-hidden="true"></div>
@@ -47,9 +47,13 @@
     </p>
 
     <div class="hero-actions">
-      <button class="btn btn--primary" onclick={() => scrollTo("#quick-start")}>
+      <a
+        class="btn btn--primary"
+        href="#quick-start"
+        onclick={() => scrollTo('#quick-start')}
+      >
         Get Started Now
-      </button>
+      </a>
       <a
         class="btn btn--outline"
         href="https://github.com/BGPFiend"
@@ -170,7 +174,7 @@
   }
 
   .hero-title {
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-size: clamp(40px, 7vw, 72px);
     font-weight: 800;
     line-height: 1.1;
@@ -284,7 +288,7 @@
     text-transform: uppercase;
     color: #c92b0c;
     margin-bottom: 8px;
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
   }
 
   .step-header {
@@ -341,7 +345,7 @@
   }
 
   .stat-value {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 28px;
     font-weight: 800;
     color: #c92b0c;

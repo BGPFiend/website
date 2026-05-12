@@ -1,29 +1,33 @@
 <script>
-  import logo from "$lib/assets/bgpfiend_logo.png"
-  import { scrollTo } from "../scroll.js"
+  import logo from '$lib/assets/bgpfiend_logo.png'
+  import { scrollTo } from '../scroll.js'
+  import { replaceState } from '$app/navigation'
 
   const footerLinks = {
     Resources: [
-      { label: "API Documentation", href: "#" },
-      { label: "GitHub", href: "https://github.com/BGPFiend" },
-      { label: "System Status", href: "#" },
+      { label: 'API Documentation', href: '#' },
+      { label: 'GitHub', href: 'https://github.com/BGPFiend' },
+      { label: 'System Status', href: '#' },
     ],
   }
 
   const year = new Date().getFullYear()
+
+  const handleNav = (e, href) => {
+    e.preventDefault()
+    scrollTo(href)
+    if (href === '#top') {
+      replaceState(window.location.pathname, {})
+    } else {
+      replaceState(href, {})
+    }
+  }
 </script>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a
-        class="brand"
-        href="#hero"
-        onclick={(e) => {
-          e.preventDefault()
-          scrollTo("#hero")
-        }}
-      >
+      <a class="brand" href="/" onclick={(e) => handleNav(e, '#top')}>
         <img class="brand-logo" src={logo} alt="BGPFiend" />
       </a>
       <p class="brand-desc">
@@ -54,10 +58,7 @@
               <a
                 class="footer-link"
                 href={link.href}
-                onclick={(e) => {
-                  e.preventDefault()
-                  scrollTo(link.href)
-                }}
+                onclick={(e) => handleNav(e, link.href)}
               >
                 {link.label}
               </a>
@@ -81,7 +82,7 @@
 
   <div class="footer-bottom">
     <span>&#169; {year} BGPFiend. All rights reserved.</span>
-    <span class="footer-badge">MIT Licensed &#8226; Open Source</span>
+    <span class="footer-badge">GPL-3.0 Licensed &#8226; Open Source</span>
   </div>
 </footer>
 
@@ -181,7 +182,7 @@
   }
 
   .footer-badge {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     color: #c92b0c;
     background: rgba(201, 43, 12, 0.06);

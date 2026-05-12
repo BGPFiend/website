@@ -1,7 +1,7 @@
 // Primary: crimson red (#c92b0c), Secondary: warm orange (#e86f00)
 $background: #f5f5f7;
 
-@use "@material/theme/index" as theme with (
+@use '@material/theme/index' as theme with (
   $primary: #c92b0c,
   $secondary: #e86f00,
   $surface: #ffffff,

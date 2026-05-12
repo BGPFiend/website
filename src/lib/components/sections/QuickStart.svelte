@@ -1,9 +1,9 @@
 <script>
   const sdkTabs = [
     {
-      id: "rust",
-      label: "Rust SDK",
-      description: "Search BGP files and find relevant announcements",
+      id: 'rust',
+      label: 'Rust SDK',
+      description: 'Search BGP files and find relevant announcements',
       code: `use bgpkit_broker::BgpkitBroker;
 use bgpkit_parser::BgpkitParser;
 
@@ -23,9 +23,9 @@ for item in broker.into_iter().take(3) {
 }`,
     },
     {
-      id: "python",
-      label: "Python SDK",
-      description: "Search BGP files and find relevant announcements",
+      id: 'python',
+      label: 'Python SDK',
+      description: 'Search BGP files and find relevant announcements',
       code: `import bgpkit
 
 # Parse an MRT file with filters (remote URL)
@@ -42,9 +42,9 @@ for elem in parser:
 assert count == 4227`,
     },
     {
-      id: "cli",
-      label: "Monocle CLI",
-      description: "All-in-one CLI tool for BGP investigation",
+      id: 'cli',
+      label: 'Monocle CLI',
+      description: 'All-in-one CLI tool for BGP investigation',
       code: `# Install (macOS Homebrew)
 brew install monocle
 
@@ -247,7 +247,7 @@ monocle rpki validate 1.1.1.0/24 13335`,
     margin: 0;
     padding: 24px;
     overflow-x: auto;
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
     line-height: 1.7;
     color: #cdd6f4;
