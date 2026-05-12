@@ -81,7 +81,7 @@
             <p class="step-desc">{step.description}</p>
             <a
               class="step-link"
-              href={step.link ?? '#'}
+              href={step.link ?? '#api-token-registration'}
               onclick={(e) => {
                 e.preventDefault()
                 if (step.dialog === 'api-token') {

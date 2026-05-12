@@ -1,6 +1,47 @@
 <script>
   import Card, { Content, Actions, ActionButtons } from '@smui/card'
   import Button, { Label } from '@smui/button'
+
+  const BASE_URL = 'http://localhost:8080'
+
+  let startTime = $state('2025-01-01T00:00:00')
+  let endTime = $state('2025-01-01T01:00:00')
+  let collectors = $state('route-views.wide')
+  let dataTypes = $state('updates')
+  let peerAsn = $state('2497')
+
+  let response = $state('')
+  let loading = $state(false)
+
+  function toRFC3339(dt) {
+    // datetime-local omits seconds when they are :00 → pad before adding Z
+    return (dt.length === 16 ? dt + ':00' : dt) + 'Z'
+  }
+
+  async function execute() {
+    const params = new URLSearchParams({
+      start_time: toRFC3339(startTime),
+      end_time: toRFC3339(endTime),
+      collectors,
+      data_types: dataTypes,
+      peer_asn: peerAsn,
+    })
+
+    const url = `${BASE_URL}/stream?${params.toString()}`
+    loading = true
+    response = ''
+
+    try {
+      const res = await fetch(url)
+      const text = await res.text()
+      response = text
+    } catch (err) {
+      console.error(err)
+      response = `Error: ${err.message}`
+    } finally {
+      loading = false
+    }
+  }
 </script>
 
 <section id="playground" class="section">
@@ -21,22 +62,99 @@
             <div class="tool-meta">
               <span class="tool-tag">v0.15.0</span>
             </div>
-            <h3 class="tool-name">Test</h3>
-            <p class="tool-subtitle">123</p>
-            <p class="tool-desc">test</p>
+            <h3 class="tool-name">BGP Stream</h3>
+            <p class="tool-subtitle">GET /stream</p>
+            <p class="tool-desc">
+              Stream BGP update messages for a given time range, collector, and
+              peer ASN. Fill in the parameters below and hit Execute to try it
+              out.
+            </p>
+
+            <form
+              class="stream-form"
+              onsubmit={(e) => {
+                e.preventDefault()
+                execute()
+              }}
+            >
+              <div class="form-row">
+                <label class="form-label" for="start-time">Start Time</label>
+                <input
+                  id="start-time"
+                  class="form-input"
+                  type="datetime-local"
+                  step="1"
+                  disabled={loading}
+                  bind:value={startTime}
+                />
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="end-time">End Time</label>
+                <input
+                  id="end-time"
+                  class="form-input"
+                  type="datetime-local"
+                  step="1"
+                  disabled={loading}
+                  bind:value={endTime}
+                />
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="collectors">Collectors</label>
+                <input
+                  id="collectors"
+                  class="form-input"
+                  type="text"
+                  placeholder="route-views.wide"
+                  disabled={loading}
+                  bind:value={collectors}
+                />
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="data-types">Data Types</label>
+                <input
+                  id="data-types"
+                  class="form-input"
+                  type="text"
+                  placeholder="updates"
+                  disabled={loading}
+                  bind:value={dataTypes}
+                />
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="peer-asn">Peer ASN</label>
+                <input
+                  id="peer-asn"
+                  class="form-input"
+                  type="number"
+                  placeholder="2497"
+                  disabled={loading}
+                  bind:value={peerAsn}
+                />
+              </div>
+            </form>
           </Content>
           <Actions class="tool-actions">
             <ActionButtons>
-              <Button href="#" target="_blank" variant="raised" color="primary">
-                <Label>Documentation</Label>
+              <Button
+                onclick={execute}
+                variant="raised"
+                color="primary"
+                disabled={loading}
+              >
+                <Label>{loading ? 'Executing…' : 'Execute'}</Label>
               </Button>
             </ActionButtons>
           </Actions>
         </Card>
 
-        <div class="tool-code-panel">
-          <div class="lang-badge">JSON</div>
-          <pre class="tool-code"><code>foo</code></pre>
+        <div class="tool-code-container">
+          <div class="tool-code-panel">
+            <div class="lang-badge">Response</div>
+            <pre class="tool-code"><code
+                >{response || '// Click Execute to run the query'}</code
+              ></pre>
+          </div>
         </div>
       </div>
     </div>
@@ -142,6 +260,7 @@
   .tool-subtitle {
     font-size: 0.875rem;
     color: #9ca3af;
+    font-family: 'JetBrains Mono', monospace;
     margin-bottom: 1rem;
   }
 
@@ -152,8 +271,66 @@
     margin-bottom: 1.25rem;
   }
 
-  /* Keep code panel dark */
+  /* Form */
+  .stream-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #1a1a2e;
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+  }
+
+  .form-input:focus {
+    border-color: #c92b0c;
+    background: #fff;
+  }
+
+  .form-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Remove number input spinners */
+  .form-input[type='number']::-webkit-inner-spin-button,
+  .form-input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  /* Code panel */
+  .tool-code-container {
+    position: relative;
+    min-height: 200px;
+  }
+
   .tool-code-panel {
+    position: absolute;
+    inset: 0;
     background: #0f1117;
     border-radius: 12px;
     overflow: hidden;
@@ -175,7 +352,7 @@
   .tool-code {
     flex: 1;
     padding: 1.5rem;
-    overflow-x: auto;
+    overflow-y: auto;
     margin: 0;
   }
 
@@ -184,13 +361,19 @@
     font-size: 0.82rem;
     line-height: 1.75;
     color: #cdd6f4;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
 
   @media (max-width: 900px) {
     .tool-row {
       grid-template-columns: 1fr;
       direction: ltr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
     }
   }
 </style>
