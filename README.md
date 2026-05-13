@@ -1,42 +1,75 @@
-# sv
+# BGPFiend website
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+SvelteKit static site for [bgpfiend.io](https://bgpfiend.io), built with SMUI (Svelte Material UI) and deployed to GitHub Pages.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Install
 
 ```sh
-# create a new project
-npx sv create my-app
+npm install
 ```
 
-To recreate this project with the same configuration:
+## Development
 
-```sh
-# recreate this project
-npx sv@0.15.3 create --template minimal --no-types --install npm website
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start the dev server:
 
 ```sh
 npm run dev
+```
 
-# or start the server and open the app in a new browser tab
+Open in browser automatically:
+
+```sh
 npm run dev -- --open
 ```
 
-## Building
+## Build & Preview
 
-To create a production version of your app:
+Build for production:
 
 ```sh
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+Preview the production build locally:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+npm run preview
+```
+
+## Deploy
+
+Deployment is automated via GitHub Actions. Every push to the `main` branch triggers the workflow at [`.github/workflows/`](.github/workflows/), which:
+
+1. Installs dependencies
+2. Builds the site
+3. Deploys the `build/` directory to GitHub Pages
+
+No manual deploy step is needed.
+
+## Theming
+
+The site uses SMUI with a custom theme defined in [`src/theme/_smui-theme.scss`](src/theme/_smui-theme.scss). After editing any theme variables, recompile the CSS:
+
+```sh
+npm run smui-theme
+```
+
+This regenerates [`static/smui.css`](static/smui.css). Commit both the `_smui-theme.scss` source and the compiled `smui.css`.
+
+## Domain / CNAME
+
+The custom domain is set in [`static/CNAME`](static/CNAME), currently:
+
+```
+bgpfiend.io
+```
+
+If the domain changes, update that file. GitHub Pages reads it on every deploy to configure the custom domain.
+
+## Code Style
+
+Format the codebase with Prettier:
+
+```sh
+npm run format
+```
