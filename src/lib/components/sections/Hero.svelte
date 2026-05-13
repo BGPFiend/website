@@ -7,14 +7,14 @@
     {
       step: 'Step 1',
       title: 'Register for a token',
-      description: 'Register for a free API token to access our BGP toolkit.',
+      description: 'Register for a free API token to access our BGP toolkit without rate limits.',
       dialog: 'api-token',
       linkLabel: 'API token registration →',
     },
     {
       step: 'Step 2',
       title: 'Access our toolkit',
-      description: 'Stream, parse, and apply filters for getting BGP data.',
+      description: 'Stream, parse, and apply filters for getting BGP data using your API token.',
       link: '#tools',
       linkLabel: 'Read our docs →',
     },
