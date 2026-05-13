@@ -23,10 +23,10 @@
   ]
 
   const stats = [
-    { value: '70+', label: 'BGP Collectors' },
-    { value: '1000+', label: 'Full-feed Peers' },
-    { value: '<5min', label: 'Data Delay' },
-    { value: 'GPL-3.0', label: 'Licensed' },
+    // { value: '70+', label: 'BGP Collectors' },
+    // { value: '1000+', label: 'Full-feed Peers' },
+    // { value: '<5min', label: 'Data Delay' },
+    // { value: 'GPL-3.0', label: 'Licensed' },
   ]
 </script>
 

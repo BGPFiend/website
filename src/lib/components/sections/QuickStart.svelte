@@ -1,66 +1,36 @@
 <script>
   const sdkTabs = [
     {
-      id: 'rust',
-      label: 'Rust SDK',
-      description: 'Search BGP files and find relevant announcements',
-      code: `use bgpkit_broker::BgpkitBroker;
-use bgpkit_parser::BgpkitParser;
+      id: 'bash',
+      label: 'Bash / curl',
+      description: 'Query BGPFiend directly with curl — no parser needed.',
+      code: `# Query by prefix (MRT backend)
+curl "bgpfiend/mrt?k=1.1.1.0/24"
 
-let broker = BgpkitBroker::new()
-    .ts_start("2024-01-01T00:00:00Z")
-    .ts_end("2024-01-01T01:00:00Z")
-    .data_type("updates");
+# Query by prefix (Parquet backend — sub-second response)
+curl "bgpfiend/parquet?k=1.1.1.0/24"
 
-for item in broker.into_iter().take(3) {
-    let parser = BgpkitParser::new(&item.url)
-        .unwrap()
-        .add_filter("origin_asn", "13335").unwrap();
+# Query by community
+curl "bgpfiend/parquet?k=65000:100"
 
-    for elem in parser {
-        println!("{}", elem);
-    }
-}`,
+# Query by peer AS
+curl "bgpfiend/parquet?k=13335"`,
     },
     {
       id: 'python',
       label: 'Python SDK',
-      description: 'Search BGP files and find relevant announcements',
-      code: `import bgpkit
+      description: 'Query BGPFiend and parse filtered BGP data over HTTP.',
+      code: `import requests
 
-# Parse an MRT file with filters (remote URL)
-parser = bgpkit.Parser(
-    url="https://spaces.bgpkit.org/parser/update-example",
-    filters={"peer_ips": "185.1.8.65, 2001:7f8:73:0:3:fa4:0:1"},
+# Query BGPFiend for prefix announcements
+response = requests.get(
+    "https://bgpfiend.example.org/mrt",
+    params={"k": "1.1.1.0/24"}
 )
 
-count = 0
-for elem in parser:
-  count += 1
-  print(elem)
-
-assert count == 4227`,
-    },
-    {
-      id: 'cli',
-      label: 'Monocle CLI',
-      description: 'All-in-one CLI tool for BGP investigation',
-      code: `# Install (macOS Homebrew)
-brew install monocle
-
-# Search for announcements for a prefix during a time window
-monocle search \\
-  -t 2024-01-01T00:00:00Z \\
-  -T 2024-01-01T00:01:00Z \\
-  -c rrc00 -p 1.1.1.0/24 -m a
-
-# Unified AS / prefix inspection
-monocle inspect 13335
-monocle inspect 1.1.1.0/24
-
-# RPKI validation (prefix + ASN)
-monocle rpki validate 1.1.1.0/24 13335`,
-    },
+for record in response.json():
+    print(record)`,
+    }
   ]
 
   let activeTab = $state(sdkTabs[0].id)
@@ -81,8 +51,7 @@ monocle rpki validate 1.1.1.0/24 13335`,
       <h1 class="section-title">Quick Start</h1>
       <h2 class="section-caption">Get Started with BGPFiend</h2>
       <p class="section-sub">
-        Search BGP archives and parse data with our SDKs. Available in Rust and
-        Python.
+        Access BGP archives with collector-side filtering via HTTP. No specialized MRT parsers required.
       </p>
     </div>
 

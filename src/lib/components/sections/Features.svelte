@@ -7,58 +7,59 @@
     {
       name: 'High Performance',
       description:
-        'Built in Rust for maximum speed. Comparable to C-based implementations like bgpdump.',
+        'Collector-side preprocessing that drastically reduces data transfer. Prefix queries drop from 325 MB to under 4 KB compared to state of the art tools.',
       features: [
-        'Parse local and remote MRT files',
-        'Early-exit prefix and AS path filters',
-        'Rust, Python, and CLI interfaces',
-        'RFC 6396 and RFC 6397 compliant',
+        'Filter by prefix, community, or peer AS at the collector side',
+        'Parquet support for sub-second prefix query response times',
+        'Reduces consumer-side download volume by up to 96%',
+        'Systematic duration gains across all query types',
       ],
       img: performanceImg,
     },
     {
       name: 'Easy to Use',
       description:
-        'Ergonomic SDKs that get you started with just a few lines of code. Battery-included with remote file support.',
+        'HTTP-native BGP data access via generic tools like curl or a web browser - no specialized MRT parsers required.',
       features: [
-        '70+ collectors indexed in real-time',
-        'Query by time window and collector',
-        'REST API and Rust/Python SDKs',
-        'Deterministic, reproducible results',
+        'Query BGP data over standard HTTP',
+        'Compatible with RIPE RIS and RouteViews archives',
+        'Supports prefix, community, and peer AS queries',
+        'Uniform query interface over underlying archives',
       ],
       lang: 'bash',
-      code: `bgpflux \\
---start "2025-01-15T12:00:00Z" \\
---end "2025-01-15T13:00:00Z" \\
--c route-views.wide,rrc04 \\
--t update`,
+      code: `curl bgpfiend/parquet?k=prefix
+curl bgpfiend/mrt?k=prefix
+bgpreader -k prefix`,
       linkLabel: 'Documentation',
       link: '#',
     },
     {
-      name: 'Actively Maintained',
+      name: 'Backward Compatible',
       description:
-        'Regular updates, bug fixes, and support for the latest BGP RFCs. Community-driven development.',
+        'Modernizes BGP data access without replacing existing archives or disrupting established consumer workflows.',
       features: [
-        'Live stream monitoring from collectors',
-        'Built-in RPKI route-origin validation',
-        'AS path analysis and leak detection',
-        'JSON/CSV output for pipeline integration',
+        'Preserves existing MRT formats and trust assumptions',
+        'Incremental adoption of improved indexing mechanisms',
+        'Supports alternative archival formats such as Parquet',
+        'Complements bulk-download and streaming pipelines',
       ],
       lang: 'bash',
-      code: `bgpflux \\
---start "2025-01-15T12:00:00Z" \\
---end "2025-01-15T13:00:00Z" \\
--c route-views.wide,rrc04 \\
--t update`,
+      code: `curl bgpfiend/parquet?k=prefix
+curl bgpfiend/mrt?k=prefix
+bgpreader -k prefix`,
       linkLabel: 'Documentation',
       link: '#',
     },
     {
-      name: 'Open Source',
+      name: 'Open & Extensible',
       description:
-        'GPL-3.0 licensed and completely open source. Use it anywhere, contribute back, or build commercial products.',
-      features: [],
+        'A foundation for scalable BGP analysis, with planned support for broader collector deployment, richer indexing, and additional query primitives.',
+      features: [
+        'Broader deployment across route collectors planned',
+        'Extensible with richer indexing and caching',
+        'Additional query primitives and data sources on roadmap',
+        'Research-backed by IIJ, RouteViews, RIPE NCC, and CAIDA',
+      ],
       img: performanceImg,
       linkLabel: 'GitHub',
       link: '#',
