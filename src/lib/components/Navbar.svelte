@@ -2,6 +2,7 @@
   import logo from '$lib/assets/bgpfiend_logo.png'
   import { scrollTo } from '../scroll.js'
   import { replaceState, goto } from '$app/navigation'
+  import { base } from '$app/paths'
   import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
   const navLinks = [
@@ -9,8 +10,12 @@
     { label: 'Features', href: '#features' },
     { label: 'Quick Start', href: '#quick-start' },
     { label: 'Playground', href: '#playground' },
-    { label: 'API Token Registration', dialog: 'api-token' },
-    { label: 'Documentation', href: '/' },
+    {
+      label: 'API Token Registration',
+      href: '#api-token-registration',
+      dialog: 'api-token',
+    },
+    { label: 'Documentation', href: '#' },
     { label: 'Contact', href: 'mailto:info@bgpfiend.io' },
   ]
 
@@ -19,8 +24,8 @@
   const handleNav = (e, href) => {
     e.preventDefault()
     menuOpen = false
-    if (window.location.pathname !== '/') {
-      goto('/' + href)
+    if (window.location.pathname !== base + '/') {
+      goto(href === '#top' ? base + '/' : base + '/' + href)
       return
     }
     scrollTo(href)
@@ -39,7 +44,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="/" onclick={(e) => handleNav(e, '#top')}>
+    <a class="brand" href={base} onclick={(e) => handleNav(e, '#top')}>
       <img src={logo} alt="BGPFiend" class="brand-logo" />
     </a>
 

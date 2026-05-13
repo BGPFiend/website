@@ -12,12 +12,16 @@
       analysis. Start your journey into BGP data processing today.
     </p>
     <div class="ready-actions">
-      <button
+      <a
         class="btn btn--primary"
-        onclick={() => apiTokenDialogOpen.set(true)}
+        href="#api-token-registration"
+        onclick={(e) => {
+          e.preventDefault()
+          apiTokenDialogOpen.set(true)
+        }}
       >
         API Token Registration
-      </button>
+      </a>
       <a
         class="btn btn--outline"
         href="https://github.com/BGPFiend"

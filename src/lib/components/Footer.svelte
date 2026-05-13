@@ -2,11 +2,16 @@
   import logo from '$lib/assets/bgpfiend_logo.png'
   import { scrollTo } from '../scroll.js'
   import { replaceState, goto } from '$app/navigation'
+  import { base } from '$app/paths'
   import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
   const footerLinks = {
     Resources: [
-      { label: 'API Token Registration', href: '#', dialog: 'api-token' },
+      {
+        label: 'API Token Registration',
+        href: '#api-token-registration',
+        dialog: 'api-token',
+      },
       { label: 'Documentation', href: '#' },
       { label: 'GitHub', href: 'https://github.com/BGPFiend' },
       { label: 'System Status', href: '#' },
@@ -17,8 +22,8 @@
 
   const handleNav = (e, href) => {
     e.preventDefault()
-    if (window.location.pathname !== '/') {
-      goto('/' + href)
+    if (window.location.pathname !== base + '/') {
+      goto(href === '#top' ? base + '/' : base + '/' + href)
       return
     }
     scrollTo(href)
@@ -33,7 +38,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="brand" href="/" onclick={(e) => handleNav(e, '#top')}>
+      <a class="brand" href={base} onclick={(e) => handleNav(e, '#top')}>
         <img class="brand-logo" src={logo} alt="BGPFiend" />
       </a>
       <p class="brand-desc">
