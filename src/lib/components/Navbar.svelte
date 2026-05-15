@@ -15,7 +15,7 @@
       href: '#api-token-registration',
       dialog: 'api-token',
     },
-    { label: 'Documentation', href: '#' },
+    { label: 'API Documentation', href: `${base}/api-documentation` },
     { label: 'Contact', href: 'mailto:info@bgpfiend.io' },
   ]
 
@@ -138,10 +138,10 @@
   }
 
   .nav-inner {
-    max-width: 1200px;
+    max-width: var(--site-width);
     margin: 0 auto;
     padding: 0 24px;
-    height: 64px;
+    height: var(--navbar-height);
     display: flex;
     align-items: center;
     justify-content: space-between;

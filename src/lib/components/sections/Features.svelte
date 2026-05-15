@@ -30,7 +30,7 @@
       code: `curl bgpfiend/parquet?k=prefix
 curl bgpfiend/mrt?k=prefix
 bgpreader -k prefix`,
-      linkLabel: 'Documentation',
+      linkLabel: 'API Documentation',
       link: '#',
     },
     {
@@ -47,7 +47,7 @@ bgpreader -k prefix`,
       code: `curl bgpfiend/parquet?k=prefix
 curl bgpfiend/mrt?k=prefix
 bgpreader -k prefix`,
-      linkLabel: 'Documentation',
+      linkLabel: 'API Documentation',
       link: '#',
     },
     {
@@ -159,7 +159,7 @@ bgpreader -k prefix`,
   }
 
   .container {
-    max-width: 1200px;
+    max-width: var(--site-width);
     margin: 0 auto;
   }
 

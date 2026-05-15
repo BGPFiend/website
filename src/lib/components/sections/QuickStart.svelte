@@ -30,7 +30,7 @@ response = requests.get(
 
 for record in response.json():
     print(record)`,
-    }
+    },
   ]
 
   let activeTab = $state(sdkTabs[0].id)
@@ -51,7 +51,8 @@ for record in response.json():
       <h1 class="section-title">Quick Start</h1>
       <h2 class="section-caption">Get Started with BGPFiend</h2>
       <p class="section-sub">
-        Access BGP archives with collector-side filtering via HTTP. No specialized MRT parsers required.
+        Access BGP archives with collector-side filtering via HTTP. No
+        specialized MRT parsers required.
       </p>
     </div>
 

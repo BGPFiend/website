@@ -1,7 +1,7 @@
 <script>
   import Card, { Content, Actions, ActionButtons } from '@smui/card'
 
-  const BASE_URL = 'http://localhost:8080'
+  const BASE_URL = 'https://api.bgpfiend.io'
 
   let startTime = $state('2025-01-01T00:00:00')
   let endTime = $state('2025-01-01T01:00:00')
@@ -62,7 +62,7 @@
         <Card class="tool-card">
           <Content class="tool-content">
             <div class="tool-meta">
-              <span class="tool-tag">BGPFiend API v0.1</span>
+              <span class="tool-tag">BGPFiend API v0.1.0</span>
             </div>
             <h3 class="tool-name">Stream BGP elements (line-by-line)</h3>
             <p class="tool-subtitle">GET /stream</p>
@@ -70,7 +70,7 @@
               A quick taste of what BGPFiend can do. Fill in the parameters and
               hit Execute to stream real BGP data. This covers the basics, for
               filtering, pagination, output formats, and the full API surface,
-              head to the <a class="doc-link" href="/" target="_blank"
+              head to the <a class="doc-link" href="/api-documentation"
                 >documentation</a
               >.
             </p>
@@ -288,7 +288,7 @@
   }
 
   .container {
-    max-width: 1200px;
+    max-width: var(--site-width);
     margin: 0 auto;
   }
 
@@ -498,6 +498,12 @@
   .btn--primary:hover {
     background: #a82209;
     box-shadow: 0 0 36px rgba(201, 43, 12, 0.4);
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 
   /* Remove number input spinners */

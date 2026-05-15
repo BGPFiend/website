@@ -17,7 +17,7 @@
       title: 'Access our toolkit',
       description:
         'Stream, parse, and apply filters for getting BGP data using your API token.',
-      link: '#tools',
+      link: '/api-documentation',
       linkLabel: 'Read our docs →',
     },
   ]
@@ -85,10 +85,11 @@
               class="step-link"
               href={step.link ?? '#api-token-registration'}
               onclick={(e) => {
-                e.preventDefault()
                 if (step.dialog === 'api-token') {
+                  e.preventDefault()
                   apiTokenDialogOpen.set(true)
-                } else {
+                } else if (step.link?.startsWith('#')) {
+                  e.preventDefault()
                   scrollTo(step.link)
                 }
               }}

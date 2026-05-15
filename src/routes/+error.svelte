@@ -50,7 +50,7 @@
     gap: 16px;
     max-width: 480px;
     margin: 0 auto;
-    padding: 112px 24px 48px;
+    padding: calc(var(--navbar-height) + 48px) 24px 48px;
   }
 
   .status {

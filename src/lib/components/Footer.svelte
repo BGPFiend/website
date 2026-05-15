@@ -12,7 +12,7 @@
         href: '#api-token-registration',
         dialog: 'api-token',
       },
-      { label: 'Documentation', href: '#' },
+      { label: 'API Documentation', href: `${base}/api-documentation` },
       { label: 'GitHub', href: 'https://github.com/BGPFiend' },
       { label: 'System Status', href: '#' },
     ],
@@ -74,7 +74,9 @@
                       e.preventDefault()
                       apiTokenDialogOpen.set(true)
                     }
-                  : (e) => handleNav(e, link.href)}
+                  : link.href.startsWith('#')
+                    ? (e) => handleNav(e, link.href)
+                    : undefined}
               >
                 {link.label}
               </a>

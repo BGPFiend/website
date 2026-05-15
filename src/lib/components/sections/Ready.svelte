@@ -22,14 +22,7 @@
       >
         API Token Registration
       </a>
-      <a
-        class="btn btn--outline"
-        href="https://github.com/BGPFiend"
-        target="_blank"
-        rel="noopener"
-      >
-        Read Our Docs
-      </a>
+      <a class="btn btn--outline" href="/api-documentation"> Read Our Docs </a>
     </div>
   </div>
 </section>
