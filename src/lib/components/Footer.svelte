@@ -4,6 +4,10 @@
   import { replaceState, goto } from '$app/navigation'
   import { base } from '$app/paths'
   import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
+  import iij_logo from '$lib/assets/iij_logo.svg'
+  import routeviews_logo from '$lib/assets/routeviews_logo.png'
+  import ripe_logo from '$lib/assets/ripe_logo.png'
+  import caida_logo from '$lib/assets/caida_logo.png'
 
   const footerLinks = {
     Resources: [
@@ -96,11 +100,30 @@
         </li>
       </ul>
     </div>
+
+    <div class="footer-col footer-col--attribution">
+      <h4 class="footer-heading">Supported by</h4>
+      <div class="attribution-logos">
+        <!-- Add attribution logos here -->
+        <a href="https://www.iij.ad.jp/" target="_blank" rel="noopener">
+          <img src={iij_logo} alt="IIJ" />
+        </a>
+        <a href="https://www.routeviews.org/" target="_blank" rel="noopener">
+          <img src={routeviews_logo} alt="RouteViews" />
+        </a>
+        <a href="https://www.ripe.net/" target="_blank" rel="noopener">
+          <img src={ripe_logo} alt="RIPE NCC" />
+        </a>
+        <a href="https://www.caida.org/" target="_blank" rel="noopener">
+          <img src={caida_logo} alt="Caida" />
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="footer-bottom">
     <span>&#169; {year} BGPFiend. All rights reserved.</span>
-    <span class="footer-badge">GPL-3.0 Licensed &#8226; Open Source</span>
+    <!-- <span class="footer-badge">GPL-3.0 Licensed &#8226; Open Source</span> -->
   </div>
 </footer>
 
@@ -183,6 +206,27 @@
 
   .footer-link:hover {
     color: #c92b0c;
+  }
+
+  .footer-col--attribution .footer-heading {
+    text-align: center;
+  }
+
+  .attribution-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .attribution-logos img {
+    max-height: 40px;
+    width: auto;
+  }
+
+  .attribution-logos a {
+    display: inline-flex;
+    align-items: center;
   }
 
   .footer-bottom {
