@@ -1,5 +1,6 @@
 <script>
   import logo from '$lib/assets/bgpfiend_logo.png'
+  import logoSupplement from '$lib/assets/bgpfiend_logo_supplement.png'
   import { scrollTo } from '../scroll.js'
   import { replaceState, goto } from '$app/navigation'
   import { base } from '$app/paths'
@@ -45,7 +46,10 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href={base} onclick={(e) => handleNav(e, '#top')}>
-      <img src={logo} alt="BGPFiend" class="brand-logo" />
+      <div class="brand-logo-row">
+        <img src={logo} alt="BGPFiend" class="brand-logo" />
+        <img src={logoSupplement} alt="" class="brand-logo-supplement" />
+      </div>
     </a>
 
     <nav class="nav-links">
@@ -153,8 +157,21 @@
     text-decoration: none;
   }
 
+  .brand-logo-row {
+    position: relative;
+    display: inline-flex;
+  }
+
   .brand-logo {
     height: 44px;
+    width: auto;
+  }
+
+  .brand-logo-supplement {
+    position: absolute;
+    bottom: -3px;
+    right: -7px;
+    height: 14px;
     width: auto;
   }
 

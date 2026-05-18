@@ -1,5 +1,6 @@
 <script>
   import logo from '$lib/assets/bgpfiend_logo.png'
+  import logoSupplement from '$lib/assets/bgpfiend_logo_supplement.png'
   import { scrollTo } from '../scroll.js'
   import { replaceState, goto } from '$app/navigation'
   import { base } from '$app/paths'
@@ -43,7 +44,10 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a class="brand" href={base} onclick={(e) => handleNav(e, '#top')}>
-        <img class="brand-logo" src={logo} alt="BGPFiend" />
+        <div class="brand-logo-row">
+          <img class="brand-logo" src={logo} alt="BGPFiend" />
+          <img src={logoSupplement} alt="" class="brand-logo-supplement" />
+        </div>
       </a>
       <p class="brand-desc">
         Open-source BGP data processing tools for network operators and
@@ -152,8 +156,21 @@
     margin-bottom: 14px;
   }
 
+  .brand-logo-row {
+    position: relative;
+    display: inline-flex;
+  }
+
   .brand-logo {
     height: 150px;
+    width: auto;
+  }
+
+  .brand-logo-supplement {
+    position: absolute;
+    bottom: -10px;
+    right: -25px;
+    height: 48px;
     width: auto;
   }
 
@@ -243,7 +260,7 @@
     gap: 8px;
   }
 
-  .footer-badge {
+  /* .footer-badge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     color: #c92b0c;
@@ -251,7 +268,7 @@
     border: 1px solid rgba(201, 43, 12, 0.15);
     padding: 3px 10px;
     border-radius: 999px;
-  }
+  } */
 
   @media (max-width: 768px) {
     .footer-inner {
