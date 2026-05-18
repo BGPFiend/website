@@ -8,6 +8,10 @@
   import Footer from '$lib/components/Footer.svelte'
 </script>
 
+<svelte:head>
+  <title>BGPFiend - Open-Source BGP Tool</title>
+</svelte:head>
+
 <div class="app">
   <Navbar />
   <main>

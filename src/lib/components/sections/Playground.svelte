@@ -11,26 +11,29 @@
 
   let response = $state('')
   let loading = $state(false)
+  let executed = $state(false)
 
   function toRFC3339(dt) {
     // datetime-local omits seconds when they are :00 → pad before adding Z
     return (dt.length === 16 ? dt + ':00' : dt) + 'Z'
   }
 
-  async function execute() {
+  const url = $derived.by(() => {
     const params = new URLSearchParams({
       start_time: toRFC3339(startTime),
       end_time: toRFC3339(endTime),
       collectors,
       data_types: dataTypes,
     })
-
     if (peerAsn != null && !Number.isNaN(peerAsn)) {
       params.set('peer_asn', String(peerAsn))
     }
+    return `${BASE_URL}/stream?${params.toString()}`
+  })
 
-    const url = `${BASE_URL}/stream?${params.toString()}`
+  async function execute() {
     loading = true
+    executed = false
     response = ''
 
     try {
@@ -42,6 +45,7 @@
       response = `Error: ${err.message}`
     } finally {
       loading = false
+      executed = true
     }
   }
 </script>
@@ -65,7 +69,7 @@
               <span class="tool-tag">BGPFiend API v0.1.0</span>
             </div>
             <h3 class="tool-name">Stream BGP elements (line-by-line)</h3>
-            <p class="tool-subtitle">GET /stream</p>
+            <p class="tool-subtitle">GET {url}</p>
             <p class="tool-desc">
               A quick taste of what BGPFiend can do. Fill in the parameters and
               hit Execute to stream real BGP data. This covers the basics, for
@@ -242,7 +246,13 @@
           <div class="tool-code-panel">
             <div class="lang-badge">Response</div>
             <pre class="tool-code"><code
-                >{response || '// Click Execute to run the query'}</code
+                >{#if loading}<span class="loading-indicator"
+                    >Loading<span class="dots"></span></span
+                  >{:else if !executed}// Click Execute to run the query{:else if !response}// No data{:else}{#each response
+                    .split('\n')
+                    .filter(Boolean) as line}<span class="response-line"
+                      >{line}</span
+                    >{/each}{/if}</code
               ></pre>
           </div>
         </div>
@@ -550,13 +560,47 @@
     margin: 0;
   }
 
+  .loading-indicator {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+
+  .dots::after {
+    content: '';
+    animation: ellipsis 1.2s steps(4, end) infinite;
+  }
+
+  @keyframes ellipsis {
+    0% {
+      content: '';
+    }
+    25% {
+      content: '.';
+    }
+    50% {
+      content: '..';
+    }
+    75% {
+      content: '...';
+    }
+  }
+
   .tool-code code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
-    line-height: 1.75;
     color: #cdd6f4;
     white-space: pre-wrap;
     word-break: break-all;
+  }
+
+  .response-line {
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 0.7em;
+  }
+
+  .response-line:last-child {
+    margin-bottom: 0;
   }
 
   @media (max-width: 900px) {

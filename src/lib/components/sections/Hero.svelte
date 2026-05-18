@@ -1,5 +1,6 @@
 <script>
   import logo from '$lib/assets/bgpfiend_logo.png'
+  import logoSupplement from '$lib/assets/bgpfiend_logo_supplement.png'
   import { scrollTo } from '../../scroll.js'
   import { apiTokenDialogOpen } from '$lib/stores/dialog.js'
 
@@ -36,7 +37,10 @@
   <div class="glow glow-2" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <img src={logo} alt="BGPFiend" class="brand-logo" />
+    <div class="brand-logo-row">
+      <img src={logo} alt="BGPFiend" class="brand-logo" />
+      <img src={logoSupplement} alt="" class="brand-logo-supplement" />
+    </div>
 
     <h1 class="hero-title">
       <span class="title-line">The Open-Source</span>
@@ -127,8 +131,21 @@
     background: #ffffff;
   }
 
+  .brand-logo-row {
+    position: relative;
+    display: inline-flex;
+  }
+
   .brand-logo {
     height: 300px;
+    width: auto;
+  }
+
+  .brand-logo-supplement {
+    position: absolute;
+    bottom: -20px;
+    right: -50px;
+    height: 96px;
     width: auto;
   }
 

@@ -94,10 +94,6 @@ for record in response.json():
     position: relative;
   }
 
-  .section--alt {
-    background: #f5f5f7;
-  }
-
   .section-inner {
     max-width: 900px;
     margin: 0 auto;
