@@ -7,7 +7,7 @@
 
   const navLinks = [
     { label: 'Top', href: '#top' },
-    { label: 'Features', href: '#features' },
+    // { label: 'Features', href: '#features' },
     { label: 'Quick Start', href: '#quick-start' },
     { label: 'Playground', href: '#playground' },
     {

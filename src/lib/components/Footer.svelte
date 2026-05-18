@@ -14,7 +14,7 @@
       },
       { label: 'API Documentation', href: `${base}/api-documentation` },
       { label: 'GitHub', href: 'https://github.com/BGPFiend' },
-      { label: 'System Status', href: '#' },
+      // { label: 'System Status', href: '#' },
     ],
   }
 

@@ -45,7 +45,7 @@ for record in response.json():
   }
 </script>
 
-<section id="quick-start" class="section section--alt">
+<section id="quick-start" class="section">
   <div class="section-inner">
     <div>
       <h1 class="section-title">Quick Start</h1>

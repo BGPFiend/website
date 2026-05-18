@@ -12,10 +12,10 @@
   <Navbar />
   <main>
     <Hero />
-    <Features />
+    <!-- <Features /> -->
     <QuickStart />
     <Playground />
-    <Ready />
+    <!-- <Ready /> -->
   </main>
   <Footer />
 </div>

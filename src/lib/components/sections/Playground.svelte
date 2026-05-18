@@ -46,7 +46,7 @@
   }
 </script>
 
-<section id="playground" class="section">
+<section id="playground" class="section section--alt">
   <div class="container">
     <div class="header">
       <h1 class="section-title">Playground</h1>
@@ -255,6 +255,10 @@
   .section {
     padding: 100px 24px;
     position: relative;
+  }
+
+  .section--alt {
+    background: #f5f5f7;
   }
 
   .header {
