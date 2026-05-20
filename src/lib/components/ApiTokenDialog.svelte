@@ -105,7 +105,7 @@
       </li>
     </ol>
 
-    <div class="notice">
+    <!-- <div class="notice">
       <svg
         class="notice-icon"
         width="16"
@@ -125,7 +125,7 @@
         <strong>Note:</strong> We reserve the right to revoke API keys at any time
         if a user is found to be in violation of our terms of use.
       </p>
-    </div>
+    </div> -->
 
     <button class="done-btn" onclick={close}>Got it</button>
   </div>
@@ -248,7 +248,7 @@
     text-decoration: underline;
   }
 
-  .notice {
+  /* .notice {
     display: flex;
     gap: 10px;
     align-items: flex-start;
@@ -269,7 +269,7 @@
     color: #1a1a2e;
     line-height: 1.6;
     margin: 0;
-  }
+  } */
 
   .done-btn {
     align-self: flex-end;

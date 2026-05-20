@@ -9,7 +9,7 @@
   const navLinks = [
     { label: 'Top', href: '#top' },
     // { label: 'Features', href: '#features' },
-    { label: 'Quick Start', href: '#quick-start' },
+    { label: 'Our Vision', href: '#our-vision' },
     { label: 'Playground', href: '#playground' },
     {
       label: 'API Token Registration',

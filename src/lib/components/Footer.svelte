@@ -50,8 +50,7 @@
         </div>
       </a>
       <p class="brand-desc">
-        Open-source BGP data processing tools for network operators and
-        researchers.
+        BGP data access framework for network operators and researchers.
       </p>
       <a
         class="github-link"

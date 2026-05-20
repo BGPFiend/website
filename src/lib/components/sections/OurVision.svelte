@@ -45,14 +45,14 @@ for record in response.json():
   }
 </script>
 
-<section id="quick-start" class="section">
+<section id="our-vision" class="section">
   <div class="section-inner">
     <div>
-      <h1 class="section-title">Quick Start</h1>
-      <h2 class="section-caption">Get Started with BGPFiend</h2>
+      <h1 class="section-title">Our Vision</h1>
+      <h2 class="section-caption">Modernizing BGP Data Access</h2>
       <p class="section-sub">
-        Access BGP archives with collector-side filtering via HTTP. No
-        specialized MRT parsers required.
+        Access various BGP archives and formats with server-side filtering via
+        HTTP. No specialized MRT parsers required.
       </p>
     </div>
 

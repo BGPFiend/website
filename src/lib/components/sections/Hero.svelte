@@ -43,23 +43,23 @@
     </div>
 
     <h1 class="hero-title">
-      <span class="title-line">The Open-Source</span>
-      <span class="title-accent">BGP Data Toolkit</span>
+      <span class="title-line">Modernizing</span>
+      <span class="title-accent">BGP Data Access</span>
     </h1>
 
     <p class="hero-sub">
-      High-performance tools for BGP data discovery, parsing, and investigation.
-      Built by network researchers, for every network professional or
-      enthusiast.
+      HTTP-native, server-side BGP query processing for scalable Internet
+      measurement. Built by network researchers, for every network professional
+      or enthusiast.
     </p>
 
     <div class="hero-actions">
       <a
         class="btn btn--primary"
-        href="#quick-start"
-        onclick={() => scrollTo('#quick-start')}
+        href="#our-vision"
+        onclick={() => scrollTo('#our-vision')}
       >
-        Get Started Now
+        Explore Our Vision
       </a>
       <a
         class="btn btn--outline"

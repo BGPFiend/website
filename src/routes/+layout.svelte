@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>BGPFiend - Open-Source BGP Tool</title>
+  <title>BGPFiend - BGP Data Access Framework</title>
   <link rel="icon" href={favicon} />
 </svelte:head>
 
